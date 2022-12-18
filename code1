@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temp) {
+        int n=temp.size();
+        vector<int> ans(n,0);
+        for(int i=0;i<n;i++){
+            int curr=temp[i],count=0;
+          for(int j=i+1;j<n;j++){
+              if(temp[i]<temp[j]){
+                  count++;
+                  break;
+              }
+              count++;
+              if(j==n-1) count=0;
+          }
+          ans[i]=count;
+        }
+        return ans;
+    }
+};
